@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include ("partials/head") %>
+    <title><%= title %></title>
+  </head>
+  <body class="container mx-auto">
+    <%- include ("partials/header" )%>
+
+    <h1 class="text-red-200"></h1>
+
+    <% if(tasks.length) {%>
+    <!-- <h1>Existen entradas</h1> -->
+    <% tasks.forEach(function(task){ %>
+    <div
+      class="w-11/12 md:w-8/12 mx-auto rounded-md border-[1px] border-blue-400 mt-8"
+    >
+      <div
+        class="bg-blue-500 flex justify-between items-center p-4 text-md text-white font-semibold"
+      >
+        <h2><%= task.title %></h2>
+        <h3><%= task.published %></h3>
+      </div>
+      <p class="text-gray-800 p-4"><%= task.content %></p>
+    </div>
+
+    <% }); %> <% } else{ %>
+    <h2 class="text-3xl text-red-400 text-center py-8">No tasks available</h2>
+    <% } %>
+  </body>
+</html>
